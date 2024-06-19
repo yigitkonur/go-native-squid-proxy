@@ -1,4 +1,6 @@
-Go-Proxy-Server is a high-performance, fast, and efficient proxy server fully written in Go. It serves as an alternative to traditional proxy solutions like Squid, offering modern features and superior performance thanks to Go's concurrency model.
+# GoNativeSquidProxy
+
+GoNativeSquidProxy is a high-performance, scalable proxy server fully written in Go, designed to efficiently handle HTTP/HTTPS requests as a modern alternative to Squid.
 
 ## Features
 
@@ -17,63 +19,73 @@ Go-Proxy-Server is a high-performance, fast, and efficient proxy server fully wr
 
 ## Installation
 
-1. **Clone the repository:**
+### Clone the Repository
 
-    ```bash
-    git clone https://github.com/yourusername/go-proxy-server.git
-    cd go-proxy-server
-    ```
+```bash
+git clone https://github.com/yourusername/go-native-squid-proxy.git
+cd go-native-squid-proxy
+```
 
-2. **Initialize the Go module:**
+### Initialize the Go Module
 
-    ```bash
-    go mod init proxy-server
-    ```
+```bash
+go mod init go-native-squid-proxy
+```
 
-3. **Download dependencies:**
+### Download Dependencies
 
-    ```bash
-    go get github.com/spf13/viper
-    go get go.uber.org/zap
-    go get github.com/prometheus/client_golang/prometheus/promhttp
-    go get github.com/stretchr/testify/assert
-    go get github.com/valyala/fasthttp
-    ```
+```bash
+go get github.com/spf13/viper
+go get go.uber.org/zap
+go get github.com/prometheus/client_golang/prometheus/promhttp
+go get github.com/stretchr/testify/assert
+go get github.com/valyala/fasthttp
+```
 
-4. **Build the project:**
+### Build the Project
 
-    ```bash
-    cd cmd/proxy
-    go build -o proxy-server
-    ```
+```bash
+cd cmd/proxy
+go build -o proxy-server
+mv proxy-server ../../
+```
 
 ## Usage
 
-1. **Create a configuration file (`config.yaml`) in the root directory:**
+### Configuration
 
-    ```yaml
-    ServerAddress: ":8080"
-    MaxConnections: 10000
-    LogLevel: "info"
-    ```
+Create a `config.yaml` file in the root directory of the project with the following content:
 
-2. **Run the proxy server:**
+```yaml
+ServerAddress: ":8080"
+MaxConnections: 10000
+LogLevel: "info"
+```
 
-    ```bash
-    ./proxy-server
-    ```
+### Run the Proxy Server
 
-3. **Test the proxy server using `curl`:**
+```bash
+./proxy-server
+```
 
-    ```bash
-    curl -x 127.0.0.1:8080 http://ifconfig.io
-    curl -x 127.0.0.1:8080 https://ifconfig.io
-    ```
+### Test the Proxy Server
+
+#### HTTP Request
+
+```bash
+curl -x 127.0.0.1:8080 http://ifconfig.io
+```
+
+#### HTTPS Request
+
+```bash
+curl -x 127.0.0.1:8080 https://ifconfig.io
+```
 
 ## Project Structure
 
 ```plaintext
-proxy-server/
+go-native-squid-proxy/
 ├── cmd/
 │   └── proxy/
 │       └── main.go
@@ -122,8 +134,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [zap](https://github.com/uber-go/zap): High-performance logging library.
 - [viper](https://github.com/spf13/viper): Configuration management library.
 - [Prometheus](https://prometheus.io/): Monitoring and alerting toolkit.
-
-# go-native-squid-proxy
-# go-native-squid-proxy
-# go-native-squid-proxy
-# go-native-squid-proxy
